@@ -59,7 +59,7 @@ export function Projects() {
                         onMouseLeave={() => setHoveredProject(null)}
                         className="h-full"
                     >
-                        <Card className="overflow-hidden border border-border/50 dark:bg-[#252538] h-full group transition-all duration-300 hover:shadow-xl">
+                        <Card className="overflow-hidden border border-border/50 dark:bg-[#252538] h-full group transition-all duration-300 hover:shadow-xl relative">
                             <div className="relative h-56 w-full overflow-hidden">
                                 {/* Lớp phủ tùy chỉnh */}
                                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
@@ -120,7 +120,7 @@ export function Projects() {
                             </CardFooter>
 
                             {/* Liên kết dự án trượt lên khi hover */}
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1E1E2E] to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex justify-end gap-2">
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1E1E2E] to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex justify-end gap-2 z-20">
                                 <Button
                                     asChild
                                     variant="outline"

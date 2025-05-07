@@ -4,10 +4,11 @@ import type React from "react"
 
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
-import type { CardProps } from "@/components/ui/card"
+import type { CardProps } from "@/components/ui/card" // Ensure CardProps is exported from the module or define it locally if missing
 
 interface AnimatedCardProps extends CardProps {
     children: React.ReactNode
+    className?: string // Add className to the interface
 }
 
 export function AnimatedCard({ children, className, ...props }: AnimatedCardProps) {

@@ -71,6 +71,10 @@ const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
 )
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, type CardProps }
 
-// Removed the CardProps interface as it was redundant
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+    className?: string;
+    children?: React.ReactNode;
+}
+

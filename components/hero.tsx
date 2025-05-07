@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { usePersonalInfo } from "@/context/personal-info-context"
 import Image from "next/image"
 
 export function Hero() {
     const [isVisible, setIsVisible] = useState(false)
+    const { personalInfo } = usePersonalInfo()
 
     useEffect(() => {
         setIsVisible(true)
@@ -14,7 +16,7 @@ export function Hero() {
 
     return (
         <section className="py-32 md:py-40 container relative overflow-hidden">
-            {/* Custom background pattern */}
+            {/* Mẫu nền tùy chỉnh */}
             <div className="absolute inset-0 -z-10 opacity-10">
                 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -39,8 +41,8 @@ export function Hero() {
                         transition={{ delay: 0.2, duration: 0.5 }}
                     >
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                            <span className="block">Hi, I'm</span>
-                            <span className="text-[#B2545E]">John Doe</span>
+                            <span className="block">Xin chào, tôi là</span>
+                            <span className="text-[#B2545E]">{personalInfo.name}</span>
                         </h1>
                     </motion.div>
 
@@ -50,7 +52,7 @@ export function Hero() {
                         animate={isVisible ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.4, duration: 0.5 }}
                     >
-                        .NET C# Developer
+                        {personalInfo.title}
                     </motion.h2>
 
                     <motion.p
@@ -59,7 +61,7 @@ export function Hero() {
                         animate={isVisible ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.6, duration: 0.5 }}
                     >
-                        Building robust, scalable applications with modern .NET technologies and a passion for clean code.
+                        {personalInfo.bio}
                     </motion.p>
 
                     <motion.div
@@ -68,7 +70,7 @@ export function Hero() {
                         transition={{ delay: 0.8, duration: 0.5 }}
                     >
                         <Button size="lg" className="relative overflow-hidden group bg-[#B2545E] hover:bg-[#B2545E]/90 text-white">
-                            <span className="relative z-10">Hire Me</span>
+                            <span className="relative z-10">Thuê Tôi</span>
                             <span className="absolute inset-0 h-full w-full bg-gradient-to-r from-[#B2545E]/0 via-white/20 to-[#B2545E]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                         </Button>
                     </motion.div>
@@ -81,25 +83,24 @@ export function Hero() {
                     transition={{ duration: 0.7 }}
                 >
                     <div className="relative w-64 h-64 md:w-80 md:h-80">
-                        {/* Custom avatar with unique border */}
+                        {/* Avatar tùy chỉnh với viền độc đáo */}
                         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#B2545E] to-[#1E1E2E] p-1">
                             <div className="h-full w-full rounded-full overflow-hidden border-4 border-[#1E1E2E] dark:border-[#B2545E]/20">
                                 <Image
-                                    src="/placeholder.svg"
-                                    alt="John Doe"
+                                    src={personalInfo.avatar || "/images/avatar.jpg"}
+                                    alt={personalInfo.name}
                                     width={320}
                                     height={320}
                                     className="h-full w-full object-cover"
                                 />
-
                             </div>
                         </div>
 
-                        {/* Decorative elements */}
+                        {/* Phần tử trang trí */}
                         <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-[#B2545E]/20 animate-pulse"></div>
                         <div className="absolute -bottom-2 -left-2 w-8 h-8 rounded-full bg-[#B2545E]/30 animate-pulse delay-300"></div>
 
-                        {/* Animated dots */}
+                        {/* Chấm động */}
                         <div className="absolute top-1/4 -left-6 w-3 h-3 rounded-full bg-[#B2545E] animate-ping-slow"></div>
                         <div className="absolute bottom-1/4 -right-6 w-3 h-3 rounded-full bg-[#B2545E] animate-ping-slow delay-700"></div>
                     </div>

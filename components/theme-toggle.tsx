@@ -60,7 +60,7 @@ export function ThemeToggle() {
                 )}
             </div>
             <div className="absolute inset-0 dark:bg-slate-800 bg-amber-100 opacity-20 rounded-md"></div>
-            <span className="sr-only">Toggle theme</span>
+            <span className="sr-only">Chuyển đổi chủ đề</span>
         </Button>
     )
 }

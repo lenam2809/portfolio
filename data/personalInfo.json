@@ -1,0 +1,122 @@
+{
+    "name": "Lê Văn Nam",
+    "title": "Lập Trình Viên .NET C#",
+    "email": "lenam28091999@gmail.com",
+    "phone": "+84 975 431 485",
+    "avatar": "/images/avatar.jpg",
+    "address": {
+      "street": "123 Đường Lê Lợi",
+      "city": "Hồ Chí Minh",
+      "state": "TP.HCM",
+      "zipCode": "700000"
+    },
+    "bio": "Tôi là một lập trình viên .NET C# với hơn 5 năm kinh nghiệm xây dựng các ứng dụng mạnh mẽ, có khả năng mở rộng. Tôi đam mê tạo ra các giải pháp phần mềm hiệu quả và dễ bảo trì, luôn tìm kiếm cơ hội để học hỏi và phát triển kỹ năng của mình.",
+    "skills": [
+      {
+        "name": ".NET Core",
+        "icon": "Database",
+        "level": 90,
+        "example": "Xây dựng API hiệu suất cao xử lý hơn 10 triệu yêu cầu hàng ngày sử dụng .NET Core và Azure"
+      },
+      {
+        "name": "C#",
+        "icon": "Code",
+        "level": 95,
+        "example": "Phát triển các LINQ provider tùy chỉnh và tối ưu hóa sử dụng bộ nhớ trong các ứng dụng quy mô lớn"
+      },
+      {
+        "name": "Entity Framework",
+        "icon": "Layers",
+        "level": 85,
+        "example": "Triển khai các mẫu truy cập dữ liệu phức tạp với EF Core, giảm thời gian truy vấn 40%"
+      },
+      {
+        "name": "Blazor",
+        "icon": "Globe",
+        "level": 80,
+        "example": "Tạo bảng điều khiển tương tác với cập nhật thời gian thực sử dụng Blazor WebAssembly"
+      },
+      {
+        "name": "SQL Server",
+        "icon": "Server",
+        "level": 85,
+        "example": "Tối ưu hóa lược đồ cơ sở dữ liệu và truy vấn, cải thiện hiệu suất trong hệ thống với hơn 50 triệu bản ghi"
+      },
+      {
+        "name": "Git & CI/CD",
+        "icon": "GitBranch",
+        "level": 75,
+        "example": "Thiết lập pipeline triển khai tự động với GitHub Actions và Azure DevOps"
+      }
+    ],
+    "projects": [
+      {
+        "id": 1,
+        "title": "Hệ Thống CRM Doanh Nghiệp",
+        "description": "Hệ thống quản lý quan hệ khách hàng toàn diện được xây dựng với .NET 7, EF Core và Blazor WebAssembly.",
+        "image": "/placeholder.svg?height=400&width=600",
+        "tags": [".NET 7", "Blazor", "EF Core", "SQL Server"],
+        "demoUrl": "#",
+        "githubUrl": "#"
+      },
+      {
+        "id": 2,
+        "title": "Nền Tảng Thương Mại Điện Tử",
+        "description": "Giải pháp thương mại điện tử có khả năng mở rộng với kiến trúc microservices sử dụng .NET 6 và dịch vụ Azure.",
+        "image": "/placeholder.svg?height=400&width=600",
+        "tags": [".NET 6", "Microservices", "Azure", "Docker"],
+        "demoUrl": "#",
+        "githubUrl": "#"
+      },
+      {
+        "id": 3,
+        "title": "Bảng Điều Khiển Phân Tích Thời Gian Thực",
+        "description": "Bảng điều khiển tương tác để trực quan hóa dữ liệu thời gian thực sử dụng SignalR và Blazor Server.",
+        "image": "/placeholder.svg?height=400&width=600",
+        "tags": ["Blazor Server", "SignalR", "Chart.js", "SQL Server"],
+        "demoUrl": "#",
+        "githubUrl": "#"
+      },
+      {
+        "id": 4,
+        "title": "API Quản Lý Công Việc",
+        "description": "API RESTful cho quản lý công việc với .NET 7, Entity Framework Core và xác thực JWT.",
+        "image": "/placeholder.svg?height=400&width=600",
+        "tags": [".NET 7", "EF Core", "JWT", "REST API"],
+        "demoUrl": "#",
+        "githubUrl": "#"
+      }
+    ],
+    "blogPosts": [
+      {
+        "id": 1,
+        "title": "Xây Dựng Microservices Có Khả Năng Mở Rộng với .NET 7",
+        "excerpt": "Tìm hiểu cách thiết kế và triển khai kiến trúc microservices có khả năng mở rộng sử dụng các tính năng mới nhất trong .NET 7.",
+        "date": "2/5/2023",
+        "image": "/placeholder.svg?height=300&width=500",
+        "slug": "xay-dung-microservices-co-kha-nang-mo-rong-voi-dotnet-7"
+      },
+      {
+        "id": 2,
+        "title": "Mẹo Tối Ưu Hiệu Suất Entity Framework Core",
+        "excerpt": "Tối ưu hóa các hoạt động cơ sở dữ liệu với các kỹ thuật hiệu suất Entity Framework Core đã được chứng minh.",
+        "date": "15/4/2023",
+        "image": "/placeholder.svg?height=300&width=500",
+        "slug": "meo-toi-uu-hieu-suat-entity-framework-core"
+      },
+      {
+        "id": 3,
+        "title": "Bắt Đầu với Blazor WebAssembly",
+        "excerpt": "Hướng dẫn toàn diện để xây dựng ứng dụng web phía máy khách với Blazor WebAssembly.",
+        "date": "28/3/2023",
+        "image": "/placeholder.svg?height=300&width=500",
+        "slug": "bat-dau-voi-blazor-webassembly"
+      }
+    ],
+    "socialLinks": {
+      "github": "https://github.com/lenam2809",
+      "linkedin": "https://linkedin.com/in/lenam1999",
+      "email": "lenam28091999@gmail.com"
+    }
+  }
+  

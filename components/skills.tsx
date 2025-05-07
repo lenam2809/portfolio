@@ -1,52 +1,27 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Database, Code, Server, Globe, Layers, GitBranch } from "lucide-react"
+import { usePersonalInfo } from "@/context/personal-info-context"
 
-const skills = [
-    {
-        name: ".NET Core",
-        icon: <Database className="h-8 w-8 text-[#B2545E]" />,
-        level: 90,
-        example: "Built a high-performance API handling 10M+ requests daily using .NET Core and Azure",
-    },
-    {
-        name: "C#",
-        icon: <Code className="h-8 w-8 text-[#B2545E]" />,
-        level: 95,
-        example: "Developed custom LINQ providers and optimized memory usage in large-scale applications",
-    },
-    {
-        name: "Entity Framework",
-        icon: <Layers className="h-8 w-8 text-[#B2545E]" />,
-        level: 85,
-        example: "Implemented complex data access patterns with EF Core, reducing query times by 40%",
-    },
-    {
-        name: "Blazor",
-        icon: <Globe className="h-8 w-8 text-[#B2545E]" />,
-        level: 80,
-        example: "Created interactive dashboards with real-time updates using Blazor WebAssembly",
-    },
-    {
-        name: "SQL Server",
-        icon: <Server className="h-8 w-8 text-[#B2545E]" />,
-        level: 85,
-        example: "Optimized database schemas and queries, improving performance in a system with 50M+ records",
-    },
-    {
-        name: "Git & CI/CD",
-        icon: <GitBranch className="h-8 w-8 text-[#B2545E]" />,
-        level: 75,
-        example: "Set up automated deployment pipelines with GitHub Actions and Azure DevOps",
-    },
-]
+// Ánh xạ tên icon thành component
+const iconMap: Record<string, React.ReactNode> = {
+    Database: <Database className="h-8 w-8 text-[#B2545E]" />,
+    Code: <Code className="h-8 w-8 text-[#B2545E]" />,
+    Layers: <Layers className="h-8 w-8 text-[#B2545E]" />,
+    Globe: <Globe className="h-8 w-8 text-[#B2545E]" />,
+    Server: <Server className="h-8 w-8 text-[#B2545E]" />,
+    GitBranch: <GitBranch className="h-8 w-8 text-[#B2545E]" />,
+}
 
 export function Skills() {
     const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+    const { personalInfo } = usePersonalInfo()
 
     return (
         <section className="py-20 container relative">
@@ -69,7 +44,7 @@ export function Skills() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    Skills & Expertise
+                    Kỹ Năng & Chuyên Môn
                 </motion.h2>
                 <motion.p
                     className="text-muted-foreground max-w-2xl mx-auto"
@@ -78,13 +53,13 @@ export function Skills() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    My technical skills and areas of expertise in .NET development and related technologies.
+                    Kỹ năng kỹ thuật và lĩnh vực chuyên môn của tôi trong phát triển .NET và các công nghệ liên quan.
                 </motion.p>
             </div>
 
             <TooltipProvider>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {skills.map((skill, index) => (
+                    {personalInfo.skills.map((skill, index) => (
                         <motion.div
                             key={skill.name}
                             initial={{ opacity: 0, y: 20 }}
@@ -99,7 +74,9 @@ export function Skills() {
                                     <Card className="border border-border/50 dark:bg-[#252538] hover:shadow-md transition-all duration-300 overflow-hidden group">
                                         <div className="absolute inset-0 bg-gradient-to-r from-[#B2545E]/0 via-[#B2545E]/5 to-[#B2545E]/0 opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-1500"></div>
                                         <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                                            <div className="p-2 rounded-md bg-[#B2545E]/10 text-[#B2545E]">{skill.icon}</div>
+                                            <div className="p-2 rounded-md bg-[#B2545E]/10 text-[#B2545E]">
+                                                {iconMap[skill.icon] || <Code className="h-8 w-8 text-[#B2545E]" />}
+                                            </div>
                                             <h3 className="text-xl font-semibold">{skill.name}</h3>
                                         </CardHeader>
                                         <CardContent>
@@ -117,7 +94,7 @@ export function Skills() {
                                 </TooltipTrigger>
                                 <TooltipContent side="top" className="max-w-xs">
                                     <p>
-                                        <strong>Real-world example:</strong> {skill.example}
+                                        <strong>Ví dụ thực tế:</strong> {skill.example}
                                     </p>
                                 </TooltipContent>
                             </Tooltip>

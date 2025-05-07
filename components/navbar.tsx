@@ -11,10 +11,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { motion } from "framer-motion"
 
 const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Projects", path: "/projects" },
+    { name: "Trang chủ", path: "/" },
+    { name: "Dự án", path: "/projects" },
     { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
+    { name: "Liên hệ", path: "/contact" },
 ]
 
 export function Navbar() {
@@ -39,20 +39,20 @@ export function Navbar() {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <div className="container flex items-center justify-between">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2">
                     <motion.div
                         className="relative w-8 h-8 rounded-full bg-gradient-to-br from-[#B2545E] to-[#1E1E2E] flex items-center justify-center"
                         whileHover={{ rotate: 360 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="text-white font-bold text-sm">JD</span>
+                        <span className="text-white font-bold text-sm">NAM</span>
                         <div className="absolute inset-0 rounded-full border border-[#B2545E] opacity-50"></div>
                     </motion.div>
                     <span className="text-xl font-bold">Portfolio</span>
                 </Link>
 
-                {/* Desktop navigation */}
+                {/* Điều hướng desktop */}
                 <nav className="hidden md:flex items-center gap-6">
                     <div className="flex items-center gap-6 mr-4">
                         {navItems.map((item) => (
@@ -74,7 +74,7 @@ export function Navbar() {
                     </div>
                 </nav>
 
-                {/* Mobile navigation */}
+                {/* Điều hướng mobile */}
                 <div className="flex items-center gap-4 md:hidden">
                     <MoodIndicator />
                     <ThemeToggle />
@@ -82,7 +82,7 @@ export function Navbar() {
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="icon" className="md:hidden">
                                 <Menu className="h-5 w-5" />
-                                <span className="sr-only">Toggle menu</span>
+                                <span className="sr-only">Mở menu</span>
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="dark:bg-[#1E1E2E] pt-10">

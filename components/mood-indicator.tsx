@@ -6,7 +6,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 export function MoodIndicator() {
     const [timeOfDay, setTimeOfDay] = useState<"morning" | "day" | "evening" | "night">("day")
-    const [greeting, setGreeting] = useState("Good day")
+    const [greeting, setGreeting] = useState("Chào buổi trưa")
 
     useEffect(() => {
         const updateTimeOfDay = () => {
@@ -14,21 +14,21 @@ export function MoodIndicator() {
 
             if (hour >= 5 && hour < 12) {
                 setTimeOfDay("morning")
-                setGreeting("Good morning")
+                setGreeting("Chào buổi sáng")
             } else if (hour >= 12 && hour < 17) {
                 setTimeOfDay("day")
-                setGreeting("Good afternoon")
+                setGreeting("Chào buổi chiều")
             } else if (hour >= 17 && hour < 21) {
                 setTimeOfDay("evening")
-                setGreeting("Good evening")
+                setGreeting("Chào buổi tối")
             } else {
                 setTimeOfDay("night")
-                setGreeting("Good night")
+                setGreeting("Chúc ngủ ngon")
             }
         }
 
         updateTimeOfDay()
-        const interval = setInterval(updateTimeOfDay, 60000) // Update every minute
+        const interval = setInterval(updateTimeOfDay, 60000) // Cập nhật mỗi phút
 
         return () => clearInterval(interval)
     }, [])
@@ -59,6 +59,19 @@ export function MoodIndicator() {
         }
     }
 
+    const getTimeOfDayInVietnamese = () => {
+        switch (timeOfDay) {
+            case "morning":
+                return "sáng"
+            case "day":
+                return "trưa"
+            case "evening":
+                return "tối"
+            case "night":
+                return "đêm"
+        }
+    }
+
     return (
         <TooltipProvider>
             <Tooltip>
@@ -67,12 +80,12 @@ export function MoodIndicator() {
                         <div className={`relative w-3 h-3 rounded-full ${getColor()} animate-pulse`}>
                             <span className={`absolute inset-0 rounded-full animate-ping-slow ${getColor()}`}></span>
                         </div>
-                        <span className="text-xs font-medium hidden md:inline-block">{timeOfDay}</span>
+                        <span className="text-xs font-medium hidden md:inline-block">{getTimeOfDayInVietnamese()}</span>
                         {getIcon()}
                     </div>
                 </TooltipTrigger>
                 <TooltipContent side="bottom">
-                    <p>{greeting}! How can I help you today?</p>
+                    <p>{greeting}! Tôi có thể giúp gì cho bạn hôm nay?</p>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>

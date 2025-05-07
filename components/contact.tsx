@@ -22,7 +22,7 @@ export function Contact() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    Get In Touch
+                    Liên Hệ
                 </motion.h2>
                 <motion.p
                     className="text-muted-foreground max-w-2xl mx-auto"
@@ -31,7 +31,7 @@ export function Contact() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    Have a project in mind or want to discuss potential opportunities? I'd love to hear from you.
+                    Bạn có dự án trong đầu hoặc muốn thảo luận về cơ hội tiềm năng? Tôi rất muốn nghe từ bạn.
                 </motion.p>
             </div>
 
@@ -44,18 +44,20 @@ export function Contact() {
                 >
                     <Card className="border border-border/50 dark:bg-[#252538]">
                         <CardHeader>
-                            <CardTitle>Send Me a Message</CardTitle>
-                            <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
+                            <CardTitle>Gửi Tin Nhắn Cho Tôi</CardTitle>
+                            <CardDescription>
+                                Điền vào biểu mẫu dưới đây và tôi sẽ liên hệ lại với bạn sớm nhất có thể.
+                            </CardDescription>
                         </CardHeader>
                         <CardContent>
                             <form className="space-y-4">
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="text-sm font-medium">
-                                        Name
+                                        Tên
                                     </label>
                                     <Input
                                         id="name"
-                                        placeholder="Your name"
+                                        placeholder="Tên của bạn"
                                         className={`dark:bg-[#1E1E2E] transition-all duration-300 ${focusedField === "name" ? "border-[#B2545E] ring-1 ring-[#B2545E]" : ""
                                             }`}
                                         onFocus={() => setFocusedField("name")}
@@ -69,7 +71,7 @@ export function Contact() {
                                     <Input
                                         id="email"
                                         type="email"
-                                        placeholder="Your email"
+                                        placeholder="Email của bạn"
                                         className={`dark:bg-[#1E1E2E] transition-all duration-300 ${focusedField === "email" ? "border-[#B2545E] ring-1 ring-[#B2545E]" : ""
                                             }`}
                                         onFocus={() => setFocusedField("email")}
@@ -78,11 +80,11 @@ export function Contact() {
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="message" className="text-sm font-medium">
-                                        Message
+                                        Tin Nhắn
                                     </label>
                                     <Textarea
                                         id="message"
-                                        placeholder="Your message"
+                                        placeholder="Tin nhắn của bạn"
                                         rows={5}
                                         className={`dark:bg-[#1E1E2E] transition-all duration-300 ${focusedField === "message" ? "border-[#B2545E] ring-1 ring-[#B2545E]" : ""
                                             }`}
@@ -91,7 +93,7 @@ export function Contact() {
                                     />
                                 </div>
                                 <Button type="submit" className="w-full bg-[#B2545E] hover:bg-[#a34853] text-white">
-                                    Send Message
+                                    Gửi Tin Nhắn
                                 </Button>
                             </form>
                         </CardContent>
@@ -107,7 +109,7 @@ export function Contact() {
                 >
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-xl font-bold mb-4">Connect With Me</h3>
+                            <h3 className="text-xl font-bold mb-4">Kết Nối Với Tôi</h3>
                             <div className="flex flex-col space-y-4">
                                 <Link
                                     href="https://github.com"
@@ -116,7 +118,7 @@ export function Contact() {
                                     className="flex items-center text-muted-foreground hover:text-[#B2545E] transition-colors"
                                 >
                                     <Github className="h-5 w-5 mr-3" />
-                                    <span>github.com/johndoe</span>
+                                    <span>github.com/nguyenvana</span>
                                 </Link>
                                 <Link
                                     href="https://linkedin.com"
@@ -125,27 +127,27 @@ export function Contact() {
                                     className="flex items-center text-muted-foreground hover:text-[#B2545E] transition-colors"
                                 >
                                     <Linkedin className="h-5 w-5 mr-3" />
-                                    <span>linkedin.com/in/johndoe</span>
+                                    <span>linkedin.com/in/nguyenvana</span>
                                 </Link>
                                 <Link
-                                    href="mailto:john@example.com"
+                                    href="mailto:nguyenvana@example.com"
                                     className="flex items-center text-muted-foreground hover:text-[#B2545E] transition-colors"
                                 >
                                     <Mail className="h-5 w-5 mr-3" />
-                                    <span>john@example.com</span>
+                                    <span>nguyenvana@example.com</span>
                                 </Link>
                             </div>
                         </div>
 
                         <div>
-                            <h3 className="text-xl font-bold mb-4">Resume</h3>
+                            <h3 className="text-xl font-bold mb-4">Hồ Sơ</h3>
                             <p className="text-muted-foreground mb-4">
-                                Download my resume to learn more about my experience, education, and skills.
+                                Tải xuống hồ sơ của tôi để tìm hiểu thêm về kinh nghiệm, học vấn và kỹ năng của tôi.
                             </p>
                             <Button asChild className="bg-[#B2545E] hover:bg-[#a34853] text-white">
                                 <Link href="/resume.pdf" download>
                                     <FileText className="h-4 w-4 mr-2" />
-                                    Download CV
+                                    Tải Xuống CV
                                 </Link>
                             </Button>
                         </div>

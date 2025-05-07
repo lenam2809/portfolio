@@ -5,13 +5,15 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { PersonalInfoProvider } from "@/context/personal-info-context"
+import { getPersonalInfo } from "@/lib/personal-info"
 
 const montserrat = Montserrat({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Portfolio | .NET C# Developer",
-  description: "Personal portfolio website showcasing my skills and projects as a .NET C# Developer",
-  authors: [{ name: "John Doe" }],
+  title: "Portfolio | Lập Trình Viên .NET C#",
+  description: "Trang web portfolio cá nhân giới thiệu kỹ năng và dự án của tôi với tư cách là Lập Trình Viên .NET C#",
+  authors: [{ name: "Lê Văn Nam" }],
 }
 
 export const viewport: Viewport = {
@@ -23,22 +25,26 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const personalInfo = await getPersonalInfo()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${montserrat.className} min-h-screen bg-white dark:bg-[#1E1E2E] text-slate-900 dark:text-[#F5F5F5]`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
+          <PersonalInfoProvider initialData={personalInfo}>
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</main>
+              <Footer />
+            </div>
+          </PersonalInfoProvider>
         </ThemeProvider>
       </body>
     </html>

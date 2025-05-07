@@ -7,11 +7,11 @@ export function Footer() {
 
     return (
         <footer className="border-t border-border/40 bg-background dark:bg-[#1E1E2E] py-8">
-            <div className="container">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="mb-4 md:mb-0 flex items-center gap-3">
                         <MoodIndicator />
-                        <p className="text-sm text-muted-foreground">&copy; {currentYear} John Doe. All rights reserved.</p>
+                        <p className="text-sm text-muted-foreground">&copy; {currentYear} Lê Văn Nam. Đã đăng ký bản quyền.</p>
                     </div>
 
                     <div className="flex items-center space-x-4">
@@ -34,7 +34,7 @@ export function Footer() {
                             <Linkedin className="h-5 w-5" />
                         </Link>
                         <Link
-                            href="mailto:john@example.com"
+                            href="mailto:lenam28091999@gmail.com"
                             className="text-muted-foreground hover:text-[#B2545E] transition-colors"
                             aria-label="Email"
                         >

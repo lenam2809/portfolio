@@ -7,53 +7,15 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, Eye } from "lucide-react"
-
-const projects = [
-    {
-        id: 1,
-        title: "Enterprise CRM System",
-        description:
-            "A comprehensive customer relationship management system built with .NET 7, EF Core, and Blazor WebAssembly.",
-        image: "/placeholder.svg?height=400&width=600",
-        tags: [".NET 7", "Blazor", "EF Core", "SQL Server"],
-        demoUrl: "#",
-        githubUrl: "#",
-    },
-    {
-        id: 2,
-        title: "E-commerce Platform",
-        description: "Scalable e-commerce solution with microservices architecture using .NET 6 and Azure services.",
-        image: "/placeholder.svg?height=400&width=600",
-        tags: [".NET 6", "Microservices", "Azure", "Docker"],
-        demoUrl: "#",
-        githubUrl: "#",
-    },
-    {
-        id: 3,
-        title: "Real-time Analytics Dashboard",
-        description: "Interactive dashboard for real-time data visualization using SignalR and Blazor Server.",
-        image: "/placeholder.svg?height=400&width=600",
-        tags: ["Blazor Server", "SignalR", "Chart.js", "SQL Server"],
-        demoUrl: "#",
-        githubUrl: "#",
-    },
-    {
-        id: 4,
-        title: "Task Management API",
-        description: "RESTful API for task management with .NET 7, Entity Framework Core, and JWT authentication.",
-        image: "/placeholder.svg?height=400&width=600",
-        tags: [".NET 7", "EF Core", "JWT", "REST API"],
-        demoUrl: "#",
-        githubUrl: "#",
-    },
-]
+import { usePersonalInfo } from "@/context/personal-info-context"
 
 export function Projects() {
     const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+    const { personalInfo } = usePersonalInfo()
 
     return (
         <section className="py-20 container relative">
-            {/* Custom decorative element */}
+            {/* Phần tử trang trí tùy chỉnh */}
             <div className="absolute bottom-0 left-0 w-40 h-40 -z-10 opacity-10">
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -72,7 +34,7 @@ export function Projects() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    Featured Projects
+                    Dự Án Nổi Bật
                 </motion.h2>
                 <motion.p
                     className="text-muted-foreground max-w-2xl mx-auto"
@@ -81,12 +43,12 @@ export function Projects() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    A selection of my recent work and personal projects showcasing my skills and experience.
+                    Một số dự án gần đây và cá nhân của tôi thể hiện kỹ năng và kinh nghiệm của tôi.
                 </motion.p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {projects.map((project, index) => (
+                {personalInfo.projects.map((project, index) => (
                     <motion.div
                         key={project.id}
                         initial={{ opacity: 0, y: 20 }}
@@ -99,10 +61,10 @@ export function Projects() {
                     >
                         <Card className="overflow-hidden border border-border/50 dark:bg-[#252538] h-full group transition-all duration-300 hover:shadow-xl">
                             <div className="relative h-56 w-full overflow-hidden">
-                                {/* Custom overlay pattern */}
+                                {/* Lớp phủ tùy chỉnh */}
                                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
 
-                                {/* Diagonal pattern overlay */}
+                                {/* Lớp phủ mẫu chéo */}
                                 <div className="absolute inset-0 bg-[#1E1E2E]/80 opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10">
                                     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                                         <defs>
@@ -127,14 +89,14 @@ export function Projects() {
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
 
-                                {/* View details button that appears on hover */}
+                                {/* Nút xem chi tiết xuất hiện khi hover */}
                                 <div
                                     className={`absolute inset-0 flex items-center justify-center z-20 transition-opacity duration-300 ${hoveredProject === project.id ? "opacity-100" : "opacity-0"
                                         }`}
                                 >
                                     <Button className="bg-[#B2545E] hover:bg-[#B2545E]/90 text-white button-glow">
                                         <Eye className="h-4 w-4 mr-2" />
-                                        View Details
+                                        Xem Chi Tiết
                                     </Button>
                                 </div>
                             </div>
@@ -157,7 +119,7 @@ export function Projects() {
                                 ))}
                             </CardFooter>
 
-                            {/* Project links that slide up on hover */}
+                            {/* Liên kết dự án trượt lên khi hover */}
                             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1E1E2E] to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex justify-end gap-2">
                                 <Button
                                     asChild
@@ -178,7 +140,7 @@ export function Projects() {
                                 >
                                     <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                                         <Github className="h-4 w-4 mr-1" />
-                                        Code
+                                        Mã Nguồn
                                     </Link>
                                 </Button>
                             </div>
@@ -196,7 +158,7 @@ export function Projects() {
                 >
                     <Button asChild className="relative overflow-hidden group bg-[#B2545E] hover:bg-[#B2545E]/90 text-white">
                         <Link href="/projects">
-                            <span className="relative z-10">View All Projects</span>
+                            <span className="relative z-10">Xem Tất Cả Dự Án</span>
                             <span className="absolute inset-0 h-full w-full bg-gradient-to-r from-[#B2545E]/0 via-white/20 to-[#B2545E]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                         </Link>
                     </Button>
